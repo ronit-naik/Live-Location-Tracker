@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Live Location Tracker</fullName>
+    <apiAccessLevel>Unrestricted</apiAccessLevel>
+    <namespacePrefix>LocTrack</namespacePrefix>
+    <types>
+        <members>DE_LocationTrackerController</members>
+        <members>DE_LocationTrackerTest</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>DE_LocationTracker</members>
+        <members>DE_LocationTrackerApp</members>
+        <name>AuraDefinitionBundle</name>
+    </types>
+    <types>
+        <members>Geocode</members>
+        <members>LeafletRouting</members>
+        <name>CspTrustedSite</name>
+    </types>
+    <types>
+        <members>ServiceAppointment.Location_Tracker</members>
+        <name>QuickAction</name>
+    </types>
+    <types>
+        <members>esriLeaflet</members>
+        <members>esriLeafletcss</members>
+        <members>esriLeafletjs</members>
+        <members>green_marker</members>
+        <members>leaflet_routing_css</members>
+        <members>leaflet_routing_js</members>
+        <members>leaflet_v1</members>
+        <members>purple_marker</members>
+        <members>red_marker</members>
+        <name>StaticResource</name>
+    </types>
+    <version>43.0</version>
+</Package>

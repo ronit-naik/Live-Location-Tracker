@@ -1,0 +1,47 @@
+.THIS .scrollerSize{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll; /* has to be scroll, not auto */
+    -webkit-overflow-scrolling: touch;
+}
+
+.THIS span.leaflet-routing-collapse-btn {
+    margin-left: -50px;
+    z-index:99999;
+    background:none !important;
+}
+
+.THIS .leaflet-routing-collapse-btn:after {
+    content: '\00d7';
+    margin-left: -30px !important;
+    z-index:99999;
+}
+
+.THIS .leaflet-routing-collapse-btn:before {
+    content: '\F53D';
+    margin-left: -30px !important;
+    z-index:99999;
+}
+
+.THIS .leaflet-routing-alternatives-container {
+    padding: 5px;
+    border: 1px solid #ccc;
+    margin: 7px;
+    border-radius: 3px;
+}
+
+.THIS span.leaflet-routing-collapse-btn {
+    margin-left: 0px;
+    top: 13px;
+    width: 20px !important;
+}
+
+.THIS .leaflet-routing-container h2 {
+    font-size: 14px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 13px;
+    font-weight: bold;
+}

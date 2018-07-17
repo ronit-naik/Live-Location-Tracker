@@ -1,0 +1,67 @@
+<aura:component controller="DE_LocationTrackerController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="map" type="Object"/>
+    <aura:attribute name="currentLatLong" type="String" />
+    <aura:attribute name="address" type="String" />
+    <aura:attribute name="source" type="String" />
+    <aura:attribute name="route" type="object"/>
+    <aura:handler event="aura:waiting" action="{!c.waiting}"/>
+    <aura:handler event="aura:doneWaiting" action="{!c.doneWaiting}"/>
+    
+    <ltng:require styles="/resource/LocTrack__leaflet_v1/leaflet_v1/leaflet.css,/resource/LocTrack__leaflet_routing_css,/resource/LocTrack__esriLeafletcss"
+                  scripts="/resource/LocTrack__leaflet_v1/leaflet_v1/leaflet.js,/resource/LocTrack__leaflet_routing_js,/resource/LocTrack__esriLeafletjs,/resource/LocTrack__esriLeaflet"
+                  afterScriptsLoaded="{!c.jsLoaded}" /> 
+    
+    <style>
+        .leaflet-routing-collapse-btn
+        {
+        width:33px !important;
+        padding-left: 46px !important;
+        background: red !important;
+        }
+    </style>
+    
+    
+    
+    <div class="mainWrap">
+        <ui:scrollerWrapper class="scrollerSize">
+            
+            <div class="slds-page-header" style="padding: 0.5rem 0.5rem;">
+                <div class="slds-media">
+                    <div class="slds-media__figure">
+                        <span class="slds-icon_container slds-icon-standard-opportunity" title="Tracker">
+                            <lightning:icon iconName="custom:custom78" size="large" alternativeText="Map"/>
+                        </span>
+                    </div>
+                    <div class="slds-media__body">
+                        <h1 class="slds-page-header__title slds-truncate slds-align-middle" title="Distance Tracker">Location Tracker</h1>
+                        <p class="slds-text-body_small slds-line-height_reset">Live Tracking and Routing.</p>
+                    </div>
+                </div>
+            </div>
+            <div style="overflow-x:auto;">
+            <table style="max-width: 400px;" class="slds-table slds-table_bordered slds-table_cell-buffer slds-table_col-bordered">
+            <tbody>
+                <tr>
+                    <th style="padding-left: 7px;!important">
+                        <div class="slds-truncate">Source</div>
+                    </th>
+                    <td>
+                        <span style="color:green;">{!v.source}</span>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <th style="padding-left: 7px;"><div class="slds-truncate">Destination</div></th>
+                    <td style="padding-left: 7px;"><span style="color:red;">{!v.address}</span></td>
+                    
+                </tr>
+                </tbody>
+            </table>
+            </div>
+            <div aura-id="divMap" id="map" style="height:500px;width:100%;" >
+                <center><lightning:spinner variant="brand" size="medium" aura:id="spinner"/></center>
+            </div>
+        </ui:scrollerWrapper>
+    </div>
+</aura:component>
